@@ -1,5 +1,11 @@
 # Demo Frontend
 
+## parenthesis checker
+
+```
+node parenthesis.js
+```
+
 @see below to run the project locally
 
 This project is deployed using AWS Amplify to my personal

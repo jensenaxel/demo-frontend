@@ -26,7 +26,7 @@ function RegistrationForm() {
 
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
-        alert('call an api through some sort of framework and state management library like xstate, or tanstack-query, or redux but typically something that promotes scalables files for multiple developers and scalability ');
+        alert('call an api through some sort of framework and state management library like xstate, or tanstack-query, or redux but typically something that promotes a scalable file structure to keep the tasks small and somewhat compartmentalized for multiple developers and scalability ');
         // Here you can submit the formData to your backend or process it further
         console.log(formData);
     };

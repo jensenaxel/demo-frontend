@@ -1,62 +1,63 @@
 const areParenthesesBalanced = (str) => {
-    let r = false;
+  let r = false
 
-    const startChar = '(';
-    const endingChar = ')';
+  const startChar = '('
+  const endingChar = ')'
 
-    let startingChars = [];
-    let endingChars = [];
+  let startingChars = []
+  let endingChars = []
 
-    for( let i = 0; i < str.length; i++ ) {
-        const currentChar = str.charAt(i);
+  for (let i = 0; i < str.length; i++) {
+    const currentChar = str.charAt(i)
 
-        if( currentChar === startChar ) {
-            startingChars.push(currentChar)
-        } else if ( currentChar === endingChar ) {
-            startingChars.pop();
-        }
+    if (currentChar === startChar) {
+      startingChars.push(currentChar)
+    } else if (currentChar === endingChar) {
+      startingChars.pop()
     }
+  }
 
-    // run it back to see if it works for closing parenthesis as well
-    for( let i = str.length; i > 0; i-- ) {
-        const currentChar = str.charAt(i-1);
+  // run it back to see if it works for closing parenthesis as well
+  for (let i = str.length; i > 0; i--) {
+    const currentChar = str.charAt(i - 1)
 
-        if( currentChar === startChar ) {
-            endingChars.pop();
-        } else if ( currentChar === endingChar ) {
-            endingChars.push(currentChar)
-        }
+    if (currentChar === startChar) {
+      endingChars.pop()
+    } else if (currentChar === endingChar) {
+      endingChars.push(currentChar)
     }
+  }
 
-
-    return startingChars.length === 0 && endingChars.length === 0;
+  return startingChars.length === 0 && endingChars.length === 0
 }
 
 const validTestableStrings = [
-    `()`,
-    `()()()`,
-    `(()())`,
-    `((()))`,
-    `((()()))`
+  `()`,
+  `()()()`,
+  `(()())`,
+  `((()))`,
+  `((()()))`
 ]
 
 const invalidTestableStrings = [
-    `(`,
-    `)`,
-    `())`,
-    `(()(`,
-    `(()())(`
+  `(`,
+  `)`,
+  `())`,
+  `(()(`,
+  `(()())(`
 ]
 
-const lispCode = "(defun factorial (n) (if (= n 0) 1 (* n (factorial (- n 1)))))";
-console.log(`${lispCode} == ${areParenthesesBalanced(lispCode)}`);
+const lispCode = '(defun factorial (n) (if (= n 0) 1 (* n (factorial (- n 1)))))'
+console.log(`${lispCode} == ${areParenthesesBalanced(lispCode)}`)
 
+// will end up all true
 validTestableStrings.forEach((item) => {
-    console.log(`${item} == ${areParenthesesBalanced(item)}`);
+  console.log(`${item} == ${areParenthesesBalanced(item)}`)
 })
 console.log('-------')
+// will end up all false
 invalidTestableStrings.forEach((item) => {
-    console.log(`${item} == ${areParenthesesBalanced(item)}`);
+  console.log(`${item} == ${areParenthesesBalanced(item)}`)
 })
 
 /*
