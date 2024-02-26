@@ -1,6 +1,6 @@
-import { TextInput as MantineTextInput } from '@mantine/core';
 import React, { ChangeEvent, FocusEvent, forwardRef, KeyboardEventHandler, ReactNode, useCallback } from 'react';
 import { ChangeHandler } from 'react-hook-form';
+import { TextInput } from '@/ui';
 import { formatPhoneNumber, noOp, replaceInvalidCharacters, RESTRICT_REGEX } from '@/utils';
 
 type PhoneNumberProps = {
@@ -33,7 +33,6 @@ const PhoneNumberInput = forwardRef((props: PhoneNumberProps, ref: React.Ref<HTM
         description,
         disabled,
         error,
-        icon,
         label,
         maxLength,
         name,
@@ -83,14 +82,13 @@ const PhoneNumberInput = forwardRef((props: PhoneNumberProps, ref: React.Ref<HTM
     const stringLabel = label && typeof label === 'string' ? label : '';
 
     return (
-        <MantineTextInput
+        <TextInput
           aria-label={ariaLabel || stringLabel}
           data-test={testId}
           data-fieldtype={fieldType}
           description={description}
           disabled={disabled}
           error={error}
-          icon={icon}
           label={label}
           maxLength={maxLength}
           name={name}
@@ -99,21 +97,11 @@ const PhoneNumberInput = forwardRef((props: PhoneNumberProps, ref: React.Ref<HTM
           onKeyDown={onKeyDown}
           placeholder={placeholder}
           ref={ref}
-          withAsterisk={required}
+          required={required}
           rightSection={rightSection}
           value={value}
           type={type}
           w={w}
-          styles={{
-                // Don't bump down the page when the error appears
-                input: {
-                    marginBottom: 20,
-                },
-                error: {
-                    minHeight: 15,
-                    marginTop: -15,
-                },
-            }}
         />
     );
 });

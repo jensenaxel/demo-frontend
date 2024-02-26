@@ -33,7 +33,6 @@ const TextInput = forwardRef((props: TextInputProps, ref: React.Ref<HTMLInputEle
         description,
         disabled,
         error,
-        icon,
         label,
         maxLength,
         name,
@@ -63,10 +62,10 @@ const TextInput = forwardRef((props: TextInputProps, ref: React.Ref<HTMLInputEle
                 if (match) {
                     val = match.join('');
                 } else if (targetValue === '') {
-                        val = targetValue;
-                    } else {
-                        val = value;
-                    }
+                    val = targetValue;
+                } else {
+                    val = value;
+                }
             }
 
             if (val) {
@@ -90,7 +89,6 @@ const TextInput = forwardRef((props: TextInputProps, ref: React.Ref<HTMLInputEle
           description={description}
           disabled={disabled}
           error={error}
-          icon={icon}
           label={label}
           maxLength={maxLength}
           name={name}
@@ -100,6 +98,7 @@ const TextInput = forwardRef((props: TextInputProps, ref: React.Ref<HTMLInputEle
           placeholder={placeholder}
           ref={ref}
           withAsterisk={required}
+          required={required}
           rightSection={rightSection}
           value={value}
           type={type}
