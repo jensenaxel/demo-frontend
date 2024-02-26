@@ -1,13 +1,7 @@
-import React, { useState } from 'react';
-import { Button, Container, Textarea, TextInput } from '@mantine/core';
-
-type FormEvent = {
-    target: {
-        name: string,
-        value: string
-    },
-    preventDefault: () => {}
-};
+import React, { ChangeEvent, useState } from 'react';
+import { Button, Container, Flex, Textarea } from '@mantine/core';
+import { PhoneNumberInput, TextInput } from '@/ui';
+import { RESTRICT_REGEX } from '@/utils';
 
 function RegistrationForm() {
     const [formData, setFormData] = useState({
@@ -19,27 +13,32 @@ function RegistrationForm() {
         emailAddress: '',
     });
 
-    const handleChange = (e: any) => {
-        const { name, value } = e.target;
+    const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
+        const {
+            name,
+            value,
+        } = e.target;
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
         }));
     };
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
+        alert('call an api through some sort of framework and state management library like xstate, or tanstack-query, or redux but typically something that promotes scalables files for multiple developers and scalability ');
         // Here you can submit the formData to your backend or process it further
         console.log(formData);
     };
 
     return (
-        <Container size="md">
+        <Container size="sm">
             <form onSubmit={handleSubmit}>
                 <TextInput
-                  label="First Name2"
+                  label="First Name"
                   name="firstName"
                   value={formData.firstName}
+                  restrict={RESTRICT_REGEX.NAME_CASE}
                   onChange={handleChange}
                   required
                 />
@@ -47,6 +46,7 @@ function RegistrationForm() {
                   label="Last Name"
                   name="lastName"
                   value={formData.lastName}
+                  restrict={RESTRICT_REGEX.NAME_CASE}
                   onChange={handleChange}
                   required
                 />
@@ -58,13 +58,13 @@ function RegistrationForm() {
                   required
                 />
                 <Textarea
-                  label="Business Address"
+                  label="Business Address (typically this would be multiple fields, with zipcode and state validation, etc...)"
                   name="businessAddress"
                   value={formData.businessAddress}
                   onChange={handleChange}
                   required
                 />
-                <TextInput
+                <PhoneNumberInput
                   label="Telephone Number"
                   name="telephoneNumber"
                   value={formData.telephoneNumber}
@@ -79,9 +79,15 @@ function RegistrationForm() {
                   onChange={handleChange}
                   required
                 />
-                <Button type="submit" variant="filled" color="blue">
-                    Submit
-                </Button>
+                <Flex mt={20}>
+                    <Button type="submit" variant="filled" color="blue">
+                        Submit
+                    </Button>
+                </Flex>
+
+                <pre>
+                    {JSON.stringify(formData, null, 4)}
+                </pre>
             </form>
         </Container>
     );
