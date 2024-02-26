@@ -37,7 +37,7 @@ function RegistrationForm() {
         <Container size="md">
             <form onSubmit={handleSubmit}>
                 <TextInput
-                  label="First Name"
+                  label="First Name2"
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
