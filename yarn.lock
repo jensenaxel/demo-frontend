@@ -51,6 +51,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@aws-amplify/cli@npm:^12.10.1":
+  version: 12.10.1
+  resolution: "@aws-amplify/cli@npm:12.10.1"
+  dependencies:
+    axios: "npm:^1.6.2"
+    rimraf: "npm:^3.0.2"
+    tar-stream: "npm:^2.2.0"
+  bin:
+    amplify: lib/run.js
+  checksum: 5bde16e00a7475113c0a12a321fc85fd24b1f67db08773974190b8eea3de2e3b3117e485c4fe9e0fc8badf34fe7687264bc90ab129bc09563f31700c3bd05c3f
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.10.4, @babel/code-frame@npm:^7.23.5":
   version: 7.23.5
   resolution: "@babel/code-frame@npm:7.23.5"
@@ -4877,6 +4890,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^1.6.2":
+  version: 1.6.7
+  resolution: "axios@npm:1.6.7"
+  dependencies:
+    follow-redirects: "npm:^1.15.4"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 131bf8e62eee48ca4bd84e6101f211961bf6a21a33b95e5dfb3983d5a2fe50d9fffde0b57668d7ce6f65063d3dc10f2212cbcb554f75cfca99da1c73b210358d
+  languageName: node
+  linkType: hard
+
 "axobject-query@npm:^3.2.1":
   version: 3.2.1
   resolution: "axobject-query@npm:3.2.1"
@@ -5809,6 +5833,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "demo-frontend@workspace:."
   dependencies:
+    "@aws-amplify/cli": "npm:^12.10.1"
     "@mantine/core": "npm:7.6.0"
     "@mantine/hooks": "npm:7.6.0"
     "@storybook/addon-essentials": "npm:^7.6.6"
@@ -7104,6 +7129,16 @@ __metadata:
   version: 0.229.2
   resolution: "flow-parser@npm:0.229.2"
   checksum: 6f2b0b393fb02ae6b839e7e13fd31e91872941843a805eb529b3e969cf0a8a6a0546fc2ab5c7d557eead8be3e2a3fe41c07276f826ba1f84702fcbefa7723fbc
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.15.4":
+  version: 1.15.5
+  resolution: "follow-redirects@npm:1.15.5"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 418d71688ceaf109dfd6f85f747a0c75de30afe43a294caa211def77f02ef19865b547dfb73fde82b751e1cc507c06c754120b848fe5a7400b0a669766df7615
   languageName: node
   linkType: hard
 
@@ -10075,7 +10110,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"proxy-from-env@npm:^1.0.0":
+"proxy-from-env@npm:^1.0.0, proxy-from-env@npm:^1.1.0":
   version: 1.1.0
   resolution: "proxy-from-env@npm:1.1.0"
   checksum: fe7dd8b1bdbbbea18d1459107729c3e4a2243ca870d26d34c2c1bcd3e4425b7bcc5112362df2d93cc7fb9746f6142b5e272fd1cc5c86ddf8580175186f6ad42b
@@ -11672,7 +11707,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tar-stream@npm:^2.1.4":
+"tar-stream@npm:^2.1.4, tar-stream@npm:^2.2.0":
   version: 2.2.0
   resolution: "tar-stream@npm:2.2.0"
   dependencies:
